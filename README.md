@@ -26,12 +26,14 @@ $ npm install gulp-optidash --save-dev
 ### Quick example
 
 ```js
-const gulp = require("gulp"),
+const gulp = require("gulp");
 const opti = require("gulp-optidash");
 
 exports.default = () => (
     gulp.src("src/images/*")
-        .pipe(opti())
+        .pipe(opti({
+            key: "your-optidash-api-key"
+        }))
         .pipe(gulp.dest("dist/images"))
 );
 ```
@@ -40,7 +42,7 @@ exports.default = () => (
 
 ```js
 {
-    key: "optidash-api-key"
+    key: "optidash-api-key",
     compression: "medium",
     concurrency: 6
 }
